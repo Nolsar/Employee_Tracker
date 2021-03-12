@@ -11,7 +11,8 @@ CREATE TABLE employee (
     role_id INT NOT NULL,
     manager_id INT NULL,
     primary key(id)
-);
+    add foreign key (role_id) references role(id),
+    add foreign key (manager_id) references employee(id));
 
 CREATE TABLE role (
 	id INT AUTO_INCREMENT NOT NULL,
@@ -19,7 +20,7 @@ CREATE TABLE role (
     salary DECIMAL(10,2) NULL,
     department_id INT NOT NULL,
     primary key(id)
-);
+    add foreign key (department_id) REFERENCES department(id));
 
 CREATE TABLE department (
 	id INT AUTO_INCREMENT NOT NULL,
@@ -27,3 +28,4 @@ CREATE TABLE department (
     primary key(id)
     );
 
+-- ALTER TABLE employee modify COLUMN manager_id INT NULL;
